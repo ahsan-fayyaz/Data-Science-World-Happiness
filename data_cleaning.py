@@ -38,7 +38,7 @@ def drop_duplicates_from_all_datasets(datasets):
     for name, df in datasets.items():
         df = df.drop_duplicates(inplace=True)
     
-    print("Removing Duplicates rows from each dataset....\n")
+    print("Removing duplicate rows from each dataset....\n")
 
 
 
