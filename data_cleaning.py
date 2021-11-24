@@ -67,7 +67,7 @@ def clean_world_happiness_data(df):
     df = df.dropna()
     
     #Export this dataframe as csv into Clean_Dataset directory after cleaning
-    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_world_happiness.csv')
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_world_happiness.csv', index = False)
     print("Cleaned `World Happiness Data` and exported as a new csv file....")
 
 
@@ -89,7 +89,7 @@ def clean_covid_data(df):
     df = df.dropna()
     
     #Export this dataframe as csv into Clean_Dataset directory after cleaning
-    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_covid.csv')
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_covid.csv', index = False)
     print("Cleaned `Covid Data` and exported as a new csv file....")
 
 
@@ -108,7 +108,7 @@ def clean_drinking_water_data(df):
     df = df.groupby(['country'], as_index=False).mean()
     
     #Export this dataframe as csv into Clean_Dataset directory after cleaning
-    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_drinking_water_services.csv')
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_drinking_water_services.csv', index = False)
     print("Cleaned `Clean Drinking Water Data` and exported as a new csv file....")
                         
 
@@ -122,7 +122,7 @@ def clean_crude_suicide_rates_data(df):
     df = df.dropna()
     
     #Export this dataframe as csv into Clean_Dataset directory after cleaning
-    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_crude_suicide_rates.csv')
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_crude_suicide_rates.csv', index = False)
     print("Cleaned `Crude Suicide Rates Data` and exported as a new csv file....")
 
 
@@ -136,7 +136,7 @@ def clean_medical_doctors_data(df):
     df = df.dropna()
     
     #Export this dataframe as csv into Clean_Dataset directory after cleaning
-    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_medical_doctors.csv')
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_medical_doctors.csv', index = False)
     print("Cleaned `Medical Doctors Data` and exported as a new csv file....")
 
 
