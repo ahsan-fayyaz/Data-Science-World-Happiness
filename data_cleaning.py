@@ -56,7 +56,6 @@ def clean_world_happiness_data(df):
                         'Log GDP per capita': 'gdp_per_capita',
                         'Social support': 'social_support',
                         'Healthy life expectancy at birth': 'life_expectancy',
-                        'oldName1': 'newName1',
                         'Freedom to make life choices': 'freedom_to_make_life_choices',
                         'Generosity':'generosity',
                         'Perceptions of corruption': 'perceptions_of_corruption'},
