@@ -37,7 +37,8 @@ def clear_cleaned_dataset_dir():
 def drop_duplicates_from_all_datasets(datasets):
     for name, df in datasets.items():
         df = df.drop_duplicates(inplace=True)
-        print("Duplicates removed from {} dataset", name)
+    
+    print("Removing Duplicates rows from each dataset....\n")
 
 
 
@@ -46,7 +47,7 @@ def drop_duplicates_from_all_datasets(datasets):
 
 #-------World Happiness Data-------#
 def clean_world_happiness_data(df):
-    #drop unwanted columns
+    #drop columns not needed
     df = df.drop(['Positive affect', 'Negative affect', 'year'], axis=1)
     
     #rename the columns
@@ -60,27 +61,103 @@ def clean_world_happiness_data(df):
                         'Generosity':'generosity',
                         'Perceptions of corruption': 'perceptions_of_corruption'},
                         )
-    #group by country name
+    #groupby country name
     df = df.groupby(['country'], as_index=False).mean()
     #drop null rows
     df = df.dropna()
-    df = clean_world_happiness_data(raw_world_happiness_df)
-    # df.to_csv('./Datasets/Cleaned_Datasets/cleaned_world_happiness.csv')
-
-#World Happiness Data
-
-
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_world_happiness.csv')
+    print("Cleaned `World Happiness Data` and exported as a new csv file....")
 
 
+#-------Covid Data-------#
+def clean_covid_data(df):
+    #drop unwanted columns
+    df = df.drop(['1 week % increase', '1 week change', 'Confirmed last week', 'New recovered', 
+                          'Deaths / 100 Recovered', 'New recovered', 'New deaths', 'New cases', 'Active'
+                         ], axis=1)
+    df = df.rename(columns={'Country/Region': 'country',
+                        'Confirmed': 'total_confirmed',
+                        'Deaths': 'total_deaths',
+                        'Recovered': 'total_recovered',
+                        'Deaths / 100 Cases': 'deaths_per_100',
+                        'Recovered / 100 Cases': 'recovered_per_100',
+                        'WHO Region': 'region'},
+                        )
+    #drop null rows
+    df = df.dropna()
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_covid.csv')
+    print("Cleaned `Covid Data` and exported as a new csv file....")
 
+
+
+#-------Clean Drinking Water Data-------#
+def clean_drinking_water_data(df):
+    
+    #drop columns
+    df = df.drop(['Indicator', 'Period'], axis=1)
+    #rename the columns
+    df = df.rename(columns={'Location': 'country',
+                        'First Tooltip': 'clean_water_per_100_people'})
+    
+    #drop null rows
+    df = df.dropna()
+    df = df.groupby(['country'], as_index=False).mean()
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_drinking_water_services.csv')
+    print("Cleaned `Clean Drinking Water Data` and exported as a new csv file....")
+                        
+
+#-------Crude Suicide Rates Data-------#
+def clean_crude_suicide_rates_data(df):
+    df = df.drop([ 'Indicator', 'Dim1', 'Period'], axis=1)
+    #rename the columns
+    df = df.rename(columns={'Location': 'country',
+                            'First Tooltip': 'suicide_rate_per_100000_people'})
+    df = df.groupby(['country'], as_index=False).mean()
+    df = df.dropna()
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_crude_suicide_rates.csv')
+    print("Cleaned `Crude Suicide Rates Data` and exported as a new csv file....")
+
+
+#-------Medical Doctors Data-------#
+def clean_medical_doctors_data(df):
+    df = df.drop([ 'Indicator', 'Period'], axis=1)
+    #rename the columns
+    df = df.rename(columns={'Location': 'country',
+                            'First Tooltip': 'doctors_per_10000_people'})
+    df = df.groupby(['country'], as_index=False).mean()
+    df = df.dropna()
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_medical_doctors.csv')
+    print("Cleaned `Medical Doctors Data` and exported as a new csv file....")
 
 
 ###-----------MAIN-----------###
 def main():
-    clear_cleaned_dataset_dir()
-    drop_duplicates_from_all_datasets(raw_datasets)
-    clean_world_happiness_data(raw_world_happiness_df)
     
+    print("Running the Python Script to clean data.....\n")
+    #Call the function to clear any existing files in Cleaned_Dataset directory
+    clear_cleaned_dataset_dir()
+    #Call the function to remove duplicates from each dataset
+    drop_duplicates_from_all_datasets(raw_datasets)
+    
+    #call data cleaniing functiton for each dataset
+    clean_world_happiness_data(raw_world_happiness_df)
+    clean_covid_data(raw_covid_df)
+    clean_drinking_water_data(raw_drinking_water_services_df)
+    clean_crude_suicide_rates_data(raw_crude_suicide_rates_df)
+    clean_medical_doctors_data(raw_medical_doctors_df)
+    print("\n\nSUCCESS\n\nData Cleaning Done.\nCheck `Datasets/Cleaned_Datasets` directory to view new csv files with cleaned data")
+
+
 
 if __name__ == "__main__":
     main()
