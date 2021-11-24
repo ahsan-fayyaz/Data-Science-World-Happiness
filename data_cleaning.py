@@ -8,20 +8,20 @@ import os
 raw_datasets = {}
 
 #--------------IMPORT ALL THE DATASETS------------#
-world_happiness_df = pd.read_excel("./Datasets/Raw_Datasets/world_happiness/raw_world_happiness_data.xls", header=0)
-raw_datasets["World Happiness Dataset"] = world_happiness_df
+raw_world_happiness_df = pd.read_excel("./Datasets/Raw_Datasets/raw_world_happiness.xls", header=0)
+raw_datasets["World Happiness Dataset"] = raw_world_happiness_df
 
-covid_df = pd.read_csv('./Datasets/Raw_Datasets/covid/country_wise_latest.csv',header=0)
-raw_datasets["Covid Dataset"] = covid_df
+raw_covid_df = pd.read_csv('./Datasets/Raw_Datasets/raw_covid.csv',header=0)
+raw_datasets["Covid Dataset"] = raw_covid_df
 
-drinking_water_services_df = pd.read_csv('./Datasets/Raw_Datasets/other_metrics/basicDrinkingWaterServices.csv',header=0)
-raw_datasets["Drinking Water Services Dataset"] = drinking_water_services_df
+raw_drinking_water_services_df = pd.read_csv('./Datasets/Raw_Datasets/raw_drinking_water_services.csv',header=0)
+raw_datasets["Drinking Water Services Dataset"] = raw_drinking_water_services_df
 
-crude_suicide_rates_df = pd.read_csv('./Datasets/Raw_Datasets/other_metrics/crudeSuicideRates.csv',header=0)
-raw_datasets["Crude Suicide Rates Dataset"] = crude_suicide_rates_df
+raw_crude_suicide_rates_df = pd.read_csv('./Datasets/Raw_Datasets/raw_crude_suicide_rates.csv',header=0)
+raw_datasets["Crude Suicide Rates Dataset"] = raw_crude_suicide_rates_df
 
-life_expectancy_df = pd.read_csv('./Datasets/Raw_Datasets/other_metrics/lifeExpectancyAtBirth.csv',header=0)
-raw_datasets["Life Expectancy Dataset"] = life_expectancy_df
+raw_life_expectancy_df = pd.read_csv('./Datasets/Raw_Datasets/raw_life_expectancy_at_birth.csv',header=0)
+raw_datasets["Life Expectancy Dataset"] = raw_life_expectancy_df
 
 
 #--------------HELPER FUNCTIONS------------#
@@ -32,14 +32,16 @@ def drop_duplicates_from_all_datasets(datasets):
         print("Duplicates dropped from ", name)
 
 
+
+
 #--------------DATA CLEANING FUNCTIONS FOR EACH DATASET------------#
 
+#World Happiness Data
 def clean_world_happiness_data(df):
     #drop unwanted columns
-    print("Cleaning : World Happiness Data")
     df = df.drop(['Positive affect', 'Negative affect', 'year'], axis=1)
-    print("Dropped Columns: [Positive affect, Negative affect, year]")
-    print("Renmaed ")
+    
+    #rename the columns
     df = df.rename(columns={'Country name': 'country',
                         'Life Ladder': 'life_ladder',
                         'Log GDP per capita': 'gdp_per_capita',
@@ -51,33 +53,19 @@ def clean_world_happiness_data(df):
                         'Perceptions of corruption': 'perceptions_of_corruption'},
                         )
 
+    #group by country name
     df = df.groupby(['country'], as_index=False).mean()
+    #drop null rows
     df = df.dropna()
-    return df
+    df = clean_world_happiness_data(raw_world_happiness_df)
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_world_happiness.csv')
 
-    
-def drop_nulls_from_all_Datasets(df):
-    pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#World Happiness Data
 
 
 def main():
     drop_duplicates_from_all_datasets(raw_datasets)
-    clean_world_happiness_data(world_happiness_df)
+    clean_world_happiness_data(raw_world_happiness_df)
 
 if __name__ == "__main__":
     main()
