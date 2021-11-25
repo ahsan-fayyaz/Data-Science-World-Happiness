@@ -21,7 +21,7 @@ List each file and what it's purpose it. Make sure you indicate where your data 
   - `cleaned_drinking_water_services.csv`: The cleaned dataset for `raw_drinking_water_services.csv`
   - `cleaned_crude_suicide_rates.csv`: The cleaned dataset for `raw_crude_suicide_rates.csv`
   - `cleaned_medical_doctors.csv`: The cleaned dataset for `raw_medical_doctors.csv`
-  - `data_dictionary.csv`: The data dictionary for cleaned.  
+  - `data_dictionary.csv`: The data dictionary for all the cleaned data(csv files).
  
 - `code`
   - [`exploratory_data_analysis.ipynb`](exploratory_data_analysis.ipynb): 
@@ -269,8 +269,8 @@ Now that we have cleaned data to work with, we will use this data to build model
 ### Contributions
 Describe the contributions that each group member made.
 - Ahsan Fayyaz 
-  - Wrote data_cleaning.py script to clean data
-  -    
+  - Wrote data_cleaning.py script to clean data   
 - Rezwana Kabita
+  - Helped Clean the datasets and wrote scripts to visualize and understand the data better.  
 - Shanshan Li
-  - Collect all raw datasets
+  - Collected all raw datasets
