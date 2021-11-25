@@ -8,21 +8,37 @@
 ### Repository Structure
 List each file and what it's purpose it. Make sure you indicate where your data cleaning code and data dictionary are! 
 
-- `data`
-  - `world_happiness_report.csv`: Raw data from the [World Happiness Report](https://worldhappiness.report/)
-  - `covid19_cases.csv`: Raw data from the [World Health Organization (WHO)](https://covid19.who.int/info/)
-  - `cvoid19_vacination.csv`: Raw data from the [World Health Organization (WHO)](https://covid19.who.int/info/)
-  - `population_by_country.csv`: Raw data from the [The World Bank Group](https://data.worldbank.org/indicator/SP.POP.TOTL)
-  - `cleaned.csv`: The cleaned and combined dataset for modeling. 
-  - `data_dictionary.csv`: The data dictionary for cleaned. 
+- `raw data`
+  - `raw_world_happiness.xls`: Raw data from the [World Happiness Report](https://worldhappiness.report/)
+  - `raw_covid.csv`: Raw data from the [World Health Organization (WHO)](https://covid19.who.int/info/)
+  - `raw_drinking_water_services.csv`: Raw data from the [Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
+  - `raw_crude_suicide_rates.csv`: Raw data from the Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
+  - `raw_medical_doctors.csv`: Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
+  - `data_dictionary.csv`: The data dictionary for cleaned.
+
+- `cleaned data`
+  - `cleaned_world_happiness.csv`: 
+  - `cleaned_covid.csv`: Raw data from the [World Health Organization (WHO)](https://covid19.who.int/info/)
+  - `cleaned_drinking_water_services.csv`: Raw data from the [Kaggle)](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
+  - `cleaned_crude_suicide_rates.csv`: Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
+  - `cleaned_medical_doctors.csv`: Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
+-  
 - `code`
-  - `etl_twitter.py`: Cleans `raw_twitter.csv`
-  - `etl_census`: Cleans `raw_census.csv`
-  - `exploratory_data_analysis.ipynb`: Includes descriptive statistics and charts. 
-  - `build_model.py`: Builds Logistic Regression model. 
+  - `exploratory_data_analysis.ipynb`: 
+        -   Includes descriptive stats of raw datasets. 
+        -   It calls our data_cleaning.py script. 
+        -   Includes descriptive stats of cleaned datasets
+        -   Visualizes our cleaned datasets to give an overview of cleaned data
+  - `data_cleaning.py`: Cleans the following datasets:
+        - `raw_world_happiness.xls` 
+        - `raw_covid.csv`        
+        - `raw_drinking_water_services.csv` 
+        - `raw_crude_suicide_rates.csv` 
+        - `raw_medical_doctors.csv` 
+        - `data_dictionary.csv`
 
 ### Exploratory Analysis
-Describe what work you have done so far and include the code. 
+We have 5 datasets which are stored in Raw_Datasets directory under /Datasets. 
 
 ### Challenges
 Describe any challenges you've encountered so far. Let me know if there's anything you need help with!
