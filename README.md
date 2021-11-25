@@ -276,8 +276,9 @@ Now that we have cleaned data to work with, we will use this data to build model
 ### Contributions
 Describe the contributions that each group member made.
 - Ahsan Fayyaz 
-  - Wrote data_cleaning.py script to clean data   
+  - Wrote data_cleaning.py script to clean data.  
 - Rezwana Kabita
   - Helped Clean the datasets and wrote scripts to visualize and understand the data better.  
 - Shanshan Li
   - Collected all raw datasets.
+  - Wrote and editted the readme.md file
