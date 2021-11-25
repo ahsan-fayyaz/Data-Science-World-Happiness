@@ -12,9 +12,8 @@ List each file and what it's purpose it. Make sure you indicate where your data 
   - `raw_world_happiness.xls`: Raw data from the [World Happiness Report](https://worldhappiness.report/)
   - `raw_covid.csv`: Raw data from the [World Health Organization (WHO)](https://covid19.who.int/info/)
   - `raw_drinking_water_services.csv`: Raw data from the [Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
-  - `raw_crude_suicide_rates.csv`: Raw data from the Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
-  - `raw_medical_doctors.csv`: Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
-  - `data_dictionary.csv`: The data dictionary for cleaned.
+  - `raw_crude_suicide_rates.csv`: Raw data from [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
+  - `raw_medical_doctors.csv`: Raw data from [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
 
 - `cleaned data`
   - `cleaned_world_happiness.csv`: 
@@ -22,7 +21,7 @@ List each file and what it's purpose it. Make sure you indicate where your data 
   - `cleaned_drinking_water_services.csv`: Raw data from the [Kaggle)](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
   - `cleaned_crude_suicide_rates.csv`: Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
   - `cleaned_medical_doctors.csv`: Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
--  
+  - `data_dictionary.csv`: The data dictionary for cleaned.  
 - `code`
   - `exploratory_data_analysis.ipynb`: 
         -   Includes descriptive stats of raw datasets. 
