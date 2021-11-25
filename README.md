@@ -105,7 +105,7 @@ cleaned_world_happiness_df.head()
 sns.heatmap(cleaned_world_happiness_df.corr(), annot=True)
 ```
 ![world_happiness_heatmap](https://user-images.githubusercontent.com/54913677/143495463-0101e86a-89fc-445d-978f-603419e61a06.png)
-> The correlation map above visualizes the correlation values between happiness scores and the factors that contribute to happiness score. It demonstrates a direct positive correlation between the Happiness Score of a country and economy, family, and health/ life expectancy.
+> The correlation map above visualizes the correlation values between happiness scores and various evaluation factors that contribute to happiness score. It demonstrates a direct positive correlation between the Happiness Score of a country and economy, family, and health/ life expectancy.
 > 
 #### Analysis: Covid Dataset
 
@@ -266,6 +266,13 @@ To clean `raw_world_happiness.xls` effectively, we solved the problem by groupin
 ### Future Work
 Now that we have cleaned data to work with, we will use this data to build models that predict which variables are most important to determine happiness index around the world. We will use Linear Regression, Logistic Regression, K-means Clustering and various other ML algorithms to predict world happiness around the world.
 
+**Questions to answer:**
+  - Which are the happiest countries? How does the happiness level differe around the world? (Create an interactive global map, displaying ever country's happiness rank.)
+  - The new COVID19 epidemic began in December 2019. Combining the data changes on 19, 20, and 21, check the impact of COVID19 epidemic on the country's happiness.
+  - Correlation between each individual evaluation factors. (e.g. What are the factors effects the GDP per capita? )
+  - What is the difference between the happiest country in the world and the rest of the world?
+    - Which evaluation factor has the strongest correlations to the happiest country?
+
 ### Contributions
 Describe the contributions that each group member made.
 - Ahsan Fayyaz 
@@ -273,4 +280,4 @@ Describe the contributions that each group member made.
 - Rezwana Kabita
   - Helped Clean the datasets and wrote scripts to visualize and understand the data better.  
 - Shanshan Li
-  - Collected all raw datasets
+  - Collected all raw datasets.
