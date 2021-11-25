@@ -25,17 +25,17 @@ List each file and what it's purpose it. Make sure you indicate where your data 
  
 - `code`
   - `exploratory_data_analysis.ipynb`: 
-        -   Includes descriptive stats of raw datasets. 
-        -   It calls our data_cleaning.py script. 
-        -   Includes descriptive stats of cleaned datasets
-        -   Visualizes our cleaned datasets to give an overview of cleaned data
+    - Includes descriptive stats of raw datasets. 
+    - It calls our data_cleaning.py script. 
+    - Includes descriptive stats of cleaned datasets
+    - Visualizes our cleaned datasets to give an overview of cleaned data
   - `data_cleaning.py`: Cleans the following datasets:
-        - `raw_world_happiness.xls` 
-        - `raw_covid.csv`        
-        - `raw_drinking_water_services.csv` 
-        - `raw_crude_suicide_rates.csv` 
-        - `raw_medical_doctors.csv` 
-        - `data_dictionary.csv`
+    - `raw_world_happiness.xls` 
+    - `raw_covid.csv`        
+    - `raw_drinking_water_services.csv` 
+    - `raw_crude_suicide_rates.csv` 
+    - `raw_medical_doctors.csv` 
+    - `data_dictionary.csv`
 
 ### Exploratory Analysis
 We have 5 datasets which are stored in Raw_Datasets directory under /Datasets. 
