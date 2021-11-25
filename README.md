@@ -21,7 +21,7 @@ List each file and what it's purpose it. Make sure you indicate where your data 
   - `cleaned_drinking_water_services.csv`: The cleaned dataset for `raw_drinking_water_services.csv`
   - `cleaned_crude_suicide_rates.csv`: The cleaned dataset for `raw_crude_suicide_rates.csv`
   - `cleaned_medical_doctors.csv`: The cleaned dataset for `raw_medical_doctors.csv`
-  - `data_dictionary.csv`: The data dictionary for all the cleaned data(csv files).   
+  - `data_dictionary.csv`: The data dictionary for cleaned.  
  
 - `code`
   - [`exploratory_data_analysis.ipynb`](exploratory_data_analysis.ipynb): 
@@ -91,7 +91,9 @@ def clean_world_happiness_data(df):
     print("Cleaned `World Happiness Data` and exported as a new csv file....")
 ```
 
-[cleaned_world_happiness.csv](/Datasets/Cleaned_Datasets/cleaned_world_happiness.csv)
+After running [`data_cleaning.py`](data_cleaning.py) for the raw dataset `raw_world_happiness.xlx`. We have [cleaned_world_happiness.csv](/Datasets/Cleaned_Datasets/cleaned_world_happiness.csv). 
+
+Let's look at some visualization for the analysis of `cleaned_world_happiness.csv` 
 
 ```python
 cleaned_world_happiness_df = pd.read_csv("./Datasets/Cleaned_Datasets/cleaned_world_happiness.csv", header=0)
@@ -103,7 +105,8 @@ cleaned_world_happiness_df.head()
 sns.heatmap(cleaned_world_happiness_df.corr(), annot=True)
 ```
 ![world_happiness_heatmap](https://user-images.githubusercontent.com/54913677/143495463-0101e86a-89fc-445d-978f-603419e61a06.png)
-
+> The correlation map above visualizes the correlation values between happiness scores and the factors that contribute to happiness score. It demonstrates a direct positive correlation between the Happiness Score of a country and economy, family, and health/ life expectancy.
+> 
 #### Analysis: Covid Dataset
 
 Cleaning:
@@ -145,7 +148,8 @@ sort_by_region = cleaned_covid_df.groupby(['region'], as_index=False).sum()
 sort_by_region.head()
 ```
 ![covid_death_table](https://user-images.githubusercontent.com/54913677/143498268-767b7f9c-7b39-4e12-903f-dbde76f28417.png)
-
+> Taking a look at the total number of confirmed COVID19 cases (total_confirmed), total number of deaths due to COVID19 (total_deaths), and total number of people recovered from COVID19 (total_recovered) in each region.
+> 
 ```python
   # Creating plot
 fig = plt.figure(figsize =(10, 7))
@@ -158,7 +162,8 @@ plt.axis('equal')
 plt.show()
 ```
 ![covid_pie_diagram](https://user-images.githubusercontent.com/54913677/143498414-e74f4a32-f857-49ad-9377-35181f809e3a.png)
-
+> The pie graph above demonstrates the distribution of deaths due to COVID19 cases in each region.
+> 
 #### Analysis: Clean Drinking Water Dataset
 
 Cleaning:
@@ -267,6 +272,5 @@ Describe the contributions that each group member made.
   - Wrote data_cleaning.py script to clean data
   -    
 - Rezwana Kabita
-  - Helped Clean the datasets and wrote scripts to visualize and understand the data better.  
 - Shanshan Li
-  - Collected all raw datasets
+  - Collect all raw datasets
