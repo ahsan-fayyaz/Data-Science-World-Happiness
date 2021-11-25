@@ -92,6 +92,7 @@ def clean_world_happiness_data(df):
 ```
 
 [cleaned_world_happiness.csv](/Datasets/Cleaned_Datasets/cleaned_world_happiness.csv)
+
 ```python
 cleaned_world_happiness_df = pd.read_csv("./Datasets/Cleaned_Datasets/cleaned_world_happiness.csv", header=0)
 cleaned_world_happiness_df.head()
@@ -102,6 +103,150 @@ cleaned_world_happiness_df.head()
 sns.heatmap(cleaned_world_happiness_df.corr(), annot=True)
 ```
 ![world_happiness_heatmap](https://user-images.githubusercontent.com/54913677/143495463-0101e86a-89fc-445d-978f-603419e61a06.png)
+
+#### Analysis: Covid Dataset
+
+**Cleaning:**
+  * Dropping, renaming, removing nulls.
+
+```python
+#-------Covid Data-------#
+def clean_covid_data(df):
+    #drop unwanted columns
+    df = df.drop(['1 week % increase', '1 week change', 'Confirmed last week', 'New recovered', 
+                          'Deaths / 100 Recovered', 'New recovered', 'New deaths', 'New cases', 'Active'
+                         ], axis=1)
+    df = df.rename(columns={'Country/Region': 'country',
+                        'Confirmed': 'total_confirmed',
+                        'Deaths': 'total_deaths',
+                        'Recovered': 'total_recovered',
+                        'Deaths / 100 Cases': 'deaths_per_100',
+                        'Recovered / 100 Cases': 'recovered_per_100',
+                        'WHO Region': 'region'},
+                        )
+    #drop null rows
+    df = df.dropna()
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_covid.csv', index = False)
+    print("Cleaned `Covid Data` and exported as a new csv file....")
+```
+
+[cleaned_covid.csv](/Datasets/Cleaned_Datasets/cleaned_covid.csv)
+
+```python
+cleaned_covid_df = pd.read_csv("./Datasets/Cleaned_Datasets/cleaned_covid.csv", header=0)
+cleaned_covid_df.head()
+```
+![covid_table](https://user-images.githubusercontent.com/54913677/143498106-812f4877-c5d7-444c-80b1-149b9372df9e.png)
+
+```python
+sort_by_region = cleaned_covid_df.groupby(['region'], as_index=False).sum()
+sort_by_region.head()
+```
+![covid_death_table](https://user-images.githubusercontent.com/54913677/143498268-767b7f9c-7b39-4e12-903f-dbde76f28417.png)
+
+```python
+  # Creating plot
+fig = plt.figure(figsize =(10, 7))
+plt.pie(sort_by_region['total_deaths'],
+        labels=sort_by_region['region'],
+       autopct='%1.1f%%',
+       shadow=True, startangle=40)
+plt.axis('equal')
+# show plot
+plt.show()
+```
+![covid_pie_diagram](https://user-images.githubusercontent.com/54913677/143498414-e74f4a32-f857-49ad-9377-35181f809e3a.png)
+
+#### Analysis: Clean Drinking Water Dataset
+
+**Cleaning:**
+  * Dropping, renaming, grouping data by country and averaging all the rows with same country. 
+
+```python
+#-------Clean Drinking Water Data-------#
+def clean_drinking_water_data(df):
+    
+    #drop columns
+    df = df.drop(['Indicator', 'Period'], axis=1)
+    #rename the columns
+    df = df.rename(columns={'Location': 'country',
+                        'First Tooltip': 'clean_water_per_100_people'})
+    
+    #drop null rows
+    df = df.dropna()
+    df = df.groupby(['country'], as_index=False).mean()
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_drinking_water_services.csv', index = False)
+    print("Cleaned `Clean Drinking Water Data` and exported as a new csv file....")
+```
+
+[cleaned_drinking_water_services.csv](/Datasets/Cleaned_Datasets/cleaned_drinking_water_services.csv)
+
+```python
+cleaned_clean_drinking_water_df = pd.read_csv("./Datasets/Cleaned_Datasets/cleaned_drinking_water_services.csv", header=0)
+cleaned_clean_drinking_water_df.head()
+```
+![clean_drinking_water_table](https://user-images.githubusercontent.com/54913677/143498620-40f39165-7998-4906-a8cc-34774e72cede.png)
+
+#### Analysis: Crude Suicide Rates Dataset
+
+**Cleaning:**
+  * Dropping, renaming, grouping data by country and averaging all the rows with same country. 
+
+```python
+#-------Crude Suicide Rates Data-------#
+def clean_crude_suicide_rates_data(df):
+    df = df.drop([ 'Indicator', 'Dim1', 'Period'], axis=1)
+    #rename the columns
+    df = df.rename(columns={'Location': 'country',
+                            'First Tooltip': 'suicide_rate_per_100000_people'})
+    df = df.groupby(['country'], as_index=False).mean()
+    df = df.dropna()
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_crude_suicide_rates.csv', index = False)
+    print("Cleaned `Crude Suicide Rates Data` and exported as a new csv file....")
+```
+
+[cleaned_crude_suicide_rates.csv](/Datasets/Cleaned_Datasets/cleaned_crude_suicide_rates.csv)
+
+```python
+cleaned_crude_suicide_rates_df = pd.read_csv("./Datasets/Cleaned_Datasets/cleaned_crude_suicide_rates.csv", header=0)
+cleaned_crude_suicide_rates_df.head()
+```
+![crude_suicide_rate_table](https://user-images.githubusercontent.com/54913677/143498891-9837b004-047d-4e82-9d0f-668976fbd574.png)
+
+#### Analysis: Medical Doctors Dataset
+
+**Cleaning:**
+  * Dropping, renaming, grouping data by country and averaging all the rows with same country. 
+
+```python
+#-------Medical Doctors Data-------#
+def clean_medical_doctors_data(df):
+    df = df.drop([ 'Indicator', 'Period'], axis=1)
+    #rename the columns
+    df = df.rename(columns={'Location': 'country',
+                            'First Tooltip': 'doctors_per_10000_people'})
+    df = df.groupby(['country'], as_index=False).mean()
+    df = df.dropna()
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_medical_doctors.csv', index = False)
+    print("Cleaned `Medical Doctors Data` and exported as a new csv file....")
+```
+
+[cleaned_medical_doctors.csv](/Datasets/Cleaned_Datasets/cleaned_medical_doctors.csv)
+
+```python
+cleaned_medical_doctors_df = pd.read_csv("./Datasets/Cleaned_Datasets/cleaned_medical_doctors.csv", header=0)
+cleaned_medical_doctors_df.head()
+```
+![medical_doctor_table](https://user-images.githubusercontent.com/54913677/143498907-69c87ee3-fbbf-4de1-8fbd-f7b970435bea.png)
+
 
 ### Challenges
 We have multiple datasets from different sources, which made it harder for us to clean and combine these datasets together. Especially, dealing with the grouping of `raw_world_happiness.xls`. 
