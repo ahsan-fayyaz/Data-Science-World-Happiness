@@ -268,7 +268,7 @@ Now that we have cleaned data to work with, we will use this data to build model
 
 **Questions to answer:**
   - Which are the happiest countries? How does the happiness level differe around the world? (Create an interactive global map, displaying ever country's happiness rank.)
-  - The new COVID19 epidemic began in December 2019. Combining the data changes on 19, 20, and 21, check the impact of COVID19 epidemic on the country's happiness.
+  - The new COVID19 epidemic began in December 2019. Combining the data changes on 19, 20, and 21, check the impact of COVID19 epidemic on the country's happiness. 
   - Correlation between each individual evaluation factors. (e.g. What are the factors effects the GDP per capita? )
   - What is the difference between the happiest country in the world and the rest of the world?
     - Which evaluation factor has the strongest correlations to the happiest country?
