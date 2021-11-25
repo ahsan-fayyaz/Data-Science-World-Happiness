@@ -1,0 +1,33 @@
+﻿Field Name,Data Type ,Description,Example 
+Country ,String,Name of the country or region the country belongs to,Afghnistan
+Life_ladder,Float,Rating of life on a scale of 1 to 10,3.594628175
+gdp_per_capita,Float,GDP per capita of each country,7.650843461
+Social_support,Float, Social support of,0.508245361
+Life_expectancy,Float, Healthy life expectancy,52.26666673
+freedom_to_make_life_choices,Float,Freedom to make choices in life ,0.518011677
+Generosity,Float,Generosity,0.070040733
+Perceptions_of_corruption,Float,Perception of Corruption,0.843282789
+,,,
+,,,
+,,,
+cleaned_medical_doctors.csv,,,
+Country ,String,Name of the country or region the country belongs to,Afghnistan
+doctors_per_10000_people,Float ,Doctors per 10000 People ,2.3225
+,,,
+cleaned_crude_suicide_rates.csv,,,
+Country ,String,Name of the country or region the country belongs to,Afghnistan
+suicide_rate_per_100000_people,Float ,Suicide rate per 100000 People,4.3
+,,,
+cleaned_drinking_water_services.csv,,,
+Country ,String,Name of the country or region the country belongs to,Afghnistan
+clean_water_per_100_people,Float ,clean water per 100 people,37.755
+,,,
+,,,
+cleaned_covid.csv,,,
+Country ,String,Name of the country or region the country belongs to,Afghnistan
+total_confirmed,Integer,Total Number of confirmed cases ,36362
+total_deaths,Integer,Total Covid related deaths reported,1269
+total_recovered,Integer,Total Number of Recovered Cases,25198
+deaths_per_100,Float,Total number of death per 100 person,3.5
+recovered_per_100,Float,Total number of recovered cases per 100 person,69.49
+region,String,Region of the country ,Eastern Mediterranean
