@@ -267,5 +267,6 @@ Describe the contributions that each group member made.
   - Wrote data_cleaning.py script to clean data
   -    
 - Rezwana Kabita
+  - Helped Clean the datasets and wrote scripts to visualize and understand the data better.  
 - Shanshan Li
-  - Collect all raw datasets
+  - Collected all raw datasets
