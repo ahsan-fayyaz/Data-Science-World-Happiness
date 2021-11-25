@@ -58,7 +58,7 @@ To clean the datasets. We will run [`data_cleaning.py`](data_cleaning.py) script
 
 #### Analysis: World Happiness Dataset
 
-**Cleaning:**
+Cleaning:
   * All unneccessary columns are dropped.
   * Renamed the remaining columns
   * Group the data by 'country' column
@@ -106,7 +106,7 @@ sns.heatmap(cleaned_world_happiness_df.corr(), annot=True)
 
 #### Analysis: Covid Dataset
 
-**Cleaning:**
+Cleaning:
   * Dropping, renaming, removing nulls.
 
 ```python
@@ -161,7 +161,7 @@ plt.show()
 
 #### Analysis: Clean Drinking Water Dataset
 
-**Cleaning:**
+Cleaning:
   * Dropping, renaming, grouping data by country and averaging all the rows with same country. 
 
 ```python
@@ -193,7 +193,7 @@ cleaned_clean_drinking_water_df.head()
 
 #### Analysis: Crude Suicide Rates Dataset
 
-**Cleaning:**
+Cleaning:
   * Dropping, renaming, grouping data by country and averaging all the rows with same country. 
 
 ```python
@@ -221,7 +221,7 @@ cleaned_crude_suicide_rates_df.head()
 
 #### Analysis: Medical Doctors Dataset
 
-**Cleaning:**
+Cleaning:
   * Dropping, renaming, grouping data by country and averaging all the rows with same country. 
 
 ```python
