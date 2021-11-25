@@ -8,14 +8,14 @@
 ### Repository Structure
 List each file and what it's purpose it. Make sure you indicate where your data cleaning code and data dictionary are! 
 
-- `raw data`
+- `raw data` *Data stored in [/Datasets/Raw_Datasets](/Datasets/Raw_Datasets)
   - `raw_world_happiness.xls`: Raw data from the [World Happiness Report](https://worldhappiness.report/)
   - `raw_covid.csv`: Raw data from the [World Health Organization (WHO)](https://covid19.who.int/info/)
   - `raw_drinking_water_services.csv`: Raw data from the [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
   - `raw_crude_suicide_rates.csv`: Raw data from [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
   - `raw_medical_doctors.csv`: Raw data from [Kaggle](https://www.kaggle.com/utkarshxy/who-worldhealth-statistics-2020-complete)
 
-- `cleaned data` *Data stored in ./Datasets/Cleaned_Datasets directory after running data_cleaning.py script)*
+- `cleaned data` *Data stored in [./Datasets/Cleaned_Datasets](/Datasets/Cleaned_Datasets) directory after running data_cleaning.py script)*
   - `cleaned_world_happiness.csv`: The cleaned dataset for `raw_world_happiness.xlx` 
   - `cleaned_covid.csv`: The cleaned dataset for `raw_covid.csv`
   - `cleaned_drinking_water_services.csv`: The cleaned dataset for `raw_drinking_water_services.csv`
@@ -24,13 +24,13 @@ List each file and what it's purpose it. Make sure you indicate where your data 
   - `data_dictionary.csv`: The data dictionary for cleaned.  
  
 - `code`
-  - `exploratory_data_analysis.ipynb`: 
+  - [`exploratory_data_analysis.ipynb`](exploratory_data_analysis.ipynb): 
     - Includes descriptive stats of raw datasets. 
     - It calls our data_cleaning.py script. 
     - Includes descriptive stats of cleaned datasets
     - Visualizes our cleaned datasets to give an overview of cleaned data
  
-  - `data_cleaning.py`: Cleans the following datasets:
+  - [`data_cleaning.py`](data_cleaning.py): Cleans the following datasets:
     - `raw_world_happiness.xls` 
     - `raw_covid.csv`        
     - `raw_drinking_water_services.csv` 
@@ -39,7 +39,69 @@ List each file and what it's purpose it. Make sure you indicate where your data 
     - `data_dictionary.csv`
 
 ### Exploratory Analysis
-Let's start with our Jupyter notebook `exploratory_data_analysis.ipynb`. We have 5 datasets which are stored in `/Datasets/Raw_Datasets` directory. In our notebook, we read all these raw datasets to get some initial stats and condition of our data. We go over each dataset and summarize it, as well as look at what needs cleaning. Then in our notebook, we run our `data_cleaning_py` script. This Python script includes all the data cleaning code. It removes all the duplicate rows from each dataset. It contains a data cleaning function for reach dataset. For `raw_world_happiness.xls` we drop unnecessary columns, rename the remaining columns, and group the data by 'country' column, then take an average of values since we had multiple rows for each country. Then it drops the remaining null values. Next, this script cleans `raw_covid.csv` dropping, renaming, removing nulls. Similarly, `raw_drinking_water_services.csv`, `raw_crude_suicide_rates.csv`, and `raw_medical_doctors.csv` are cleaned by dropping, renaming, grouping data by country and averaging all the rows with same country. In the end, the cleaned dataframes are stored into their respective csv files under `/Datasets/Cleaned_Datasets` directory. Next, we  use Pandas to read the cleaned data within our `exploratory_data_analysis.ipynb` notebook.
+
+To begin cleaning the raw dataset we obtained, we read all the raw datasets in [`exploratory_data_analysis.ipynb`](exploratory_data_analysis.ipynb) to check for errors and special cases, and prepare data for analysis. To do so, we went over each dataset and summarize it, analysising the information and count of null values for each column.
+
+Example:
+```python
+display(world_happiness_df.describe())
+display(world_happiness_df.info())
+display(world_happiness_df.isnull().sum(axis = 0))
+```
+
+To clean the datasets. We will run [`data_cleaning.py`](data_cleaning.py) script in [`exploratory_data_analysis.ipynb`](exploratory_data_analysis.ipynb).
+```python
+%run data_cleaning.py
+```
+
+[`data_cleaning.py`](data_cleaning.py) will take and cleans all the raw datasets from [/Datasets/Raw_Datasets](/Datasets/Raw_Datasets), and stores the cleaned datasets into [./Datasets/Cleaned_Datasets](/Datasets/Cleaned_Datasets) as new files. 
+
+#### Analysis: World Happiness Dataset
+
+**Cleaning:**
+  * All unneccessary columns are dropped.
+  * Renamed the remaining columns
+  * Group the data by 'country' column
+  * Take the mean values of each column for each individual country.
+  * All remaining null values are dropped
+
+```python
+#-------World Happiness Data-------#
+def clean_world_happiness_data(df):
+    #drop columns not needed
+    df = df.drop(['Positive affect', 'Negative affect', 'year'], axis=1)
+    
+    #rename the columns
+    df = df.rename(columns={'Country name': 'country',
+                        'Life Ladder': 'life_ladder',
+                        'Log GDP per capita': 'gdp_per_capita',
+                        'Social support': 'social_support',
+                        'Healthy life expectancy at birth': 'life_expectancy',
+                        'Freedom to make life choices': 'freedom_to_make_life_choices',
+                        'Generosity':'generosity',
+                        'Perceptions of corruption': 'perceptions_of_corruption'},
+                        )
+    #groupby country name
+    df = df.groupby(['country'], as_index=False).mean()
+    #drop null rows
+    df = df.dropna()
+    
+    #Export this dataframe as csv into Clean_Dataset directory after cleaning
+    df.to_csv('./Datasets/Cleaned_Datasets/cleaned_world_happiness.csv', index = False)
+    print("Cleaned `World Happiness Data` and exported as a new csv file....")
+```
+
+[cleaned_world_happiness.csv](/Datasets/Cleaned_Datasets/cleaned_world_happiness.csv)
+```python
+cleaned_world_happiness_df = pd.read_csv("./Datasets/Cleaned_Datasets/cleaned_world_happiness.csv", header=0)
+cleaned_world_happiness_df.head()
+```
+![world_happiness_table](https://user-images.githubusercontent.com/54913677/143495535-88cfaa24-c092-40b5-a416-385949059311.png)
+
+```python
+sns.heatmap(cleaned_world_happiness_df.corr(), annot=True)
+```
+![world_happiness_heatmap](https://user-images.githubusercontent.com/54913677/143495463-0101e86a-89fc-445d-978f-603419e61a06.png)
 
 ### Challenges
 We have multiple datasets from different sources, which made it harder for us to clean and combine these datasets together. Especially, dealing with the grouping of `raw_world_happiness.xls`. 
