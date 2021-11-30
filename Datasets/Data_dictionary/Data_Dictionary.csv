@@ -1,6 +1,6 @@
 ﻿Field Name,Data Type ,Description,Example 
 Country ,String,Name of the country or region the country belongs to,Afghnistan
-Life_ladder,Float,Rating of life on a scale of 1 to 10,3.594628175
+Life_ladder,Float,Happiness Score/ Rating of life on a scale of 1 to 10,3.594628175
 gdp_per_capita,Float,GDP per capita of each country,7.650843461
 Social_support,Float, Social support of,0.508245361
 Life_expectancy,Float, Healthy life expectancy,52.26666673
