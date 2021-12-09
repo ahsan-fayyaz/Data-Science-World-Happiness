@@ -48,7 +48,7 @@ def drop_duplicates_from_all_datasets(datasets):
 #-------World Happiness Data-------#
 def clean_world_happiness_data(df):
     #drop columns not needed
-    df = df.drop(['Positive affect', 'Negative affect', 'year'], axis=1)
+    df = df.drop(['Positive affect', 'Negative affect', 'year', 'Generosity'], axis=1)
     
     #rename the columns
     df = df.rename(columns={'Country name': 'country',
@@ -57,7 +57,6 @@ def clean_world_happiness_data(df):
                         'Social support': 'social_support',
                         'Healthy life expectancy at birth': 'life_expectancy',
                         'Freedom to make life choices': 'freedom',
-                        'Generosity':'generosity',
                         'Perceptions of corruption': 'corruption'},
                         )
     #groupby country name
