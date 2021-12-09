@@ -52,13 +52,13 @@ def clean_world_happiness_data(df):
     
     #rename the columns
     df = df.rename(columns={'Country name': 'country',
-                        'Life Ladder': 'life_ladder',
+                        'Life Ladder': 'happiness_score',
                         'Log GDP per capita': 'gdp_per_capita',
                         'Social support': 'social_support',
                         'Healthy life expectancy at birth': 'life_expectancy',
-                        'Freedom to make life choices': 'freedom_to_make_life_choices',
+                        'Freedom to make life choices': 'freedom',
                         'Generosity':'generosity',
-                        'Perceptions of corruption': 'perceptions_of_corruption'},
+                        'Perceptions of corruption': 'corruption'},
                         )
     #groupby country name
     df = df.groupby(['country'], as_index=False).mean()
