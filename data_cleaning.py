@@ -42,7 +42,6 @@ def drop_duplicates_from_all_datasets(datasets):
 
 
 
-
 ###--------------DATA CLEANING FUNCTIONS FOR EACH DATASET------------###
 
 #-------World Happiness Data-------#
@@ -60,6 +59,7 @@ def clean_world_happiness_data(df):
                         'Perceptions of corruption': 'corruption'},
                         )
     #groupby country name
+    
     df = df.groupby(['country'], as_index=False).mean()
     #drop null rows
     df = df.dropna()
@@ -83,6 +83,11 @@ def clean_covid_data(df):
                         'Recovered / 100 Cases': 'recovered_per_100',
                         'WHO Region': 'region'},
                         )
+    
+    
+    #rename country columns
+    df['country'] = df['country'].str.replace('US','United States')
+    
     #drop null rows
     df = df.dropna()
     
@@ -101,9 +106,18 @@ def clean_drinking_water_data(df):
     df = df.rename(columns={'Location': 'country',
                         'First Tooltip': 'clean_water_per_100_people'})
     
+    #rename country columns
+    df['country'] = df['country'].str.replace('United States of America','United States')
+    df['country'] = df['country'].str.replace('United Kingdom of Great Britain and Northern Ireland','United Kingdom')
+    df['country'] = df['country'].str.replace('United Republic of Tanzania','Tanzania')
+    df['country'] = df['country'].str.replace('Syrian Arab Republic','Syria')
+    df['country'] = df['country'].str.replace("Democratic People's Republic of Korea",'South Korea')
+    
+    
     #drop null rows
-    df = df.dropna()
+    
     df = df.groupby(['country'], as_index=False).mean()
+    df = df.dropna()
     
     #Export this dataframe as csv into Clean_Dataset directory after cleaning
     df.to_csv('./Datasets/Cleaned_Datasets/cleaned_drinking_water_services.csv', index = False)
@@ -116,6 +130,15 @@ def clean_crude_suicide_rates_data(df):
     #rename the columns
     df = df.rename(columns={'Location': 'country',
                             'First Tooltip': 'suicide_rate_per_100000_people'})
+    
+    #rename country columns
+    df['country'] = df['country'].str.replace('United States of America','United States')
+    df['country'] = df['country'].str.replace('United Kingdom of Great Britain and Northern Ireland','United Kingdom')
+    df['country'] = df['country'].str.replace('United Republic of Tanzania','Tanzania')
+    df['country'] = df['country'].str.replace('Syrian Arab Republic','Syria')
+    df['country'] = df['country'].str.replace("Democratic People's Republic of Korea",'South Korea')
+    
+    
     df = df.groupby(['country'], as_index=False).mean()
     df = df.dropna()
     
@@ -130,6 +153,15 @@ def clean_medical_doctors_data(df):
     #rename the columns
     df = df.rename(columns={'Location': 'country',
                             'First Tooltip': 'doctors_per_10000_people'})
+    
+    #rename country columns
+    df['country'] = df['country'].str.replace('United States of America','United States')
+    df['country'] = df['country'].str.replace('United Kingdom of Great Britain and Northern Ireland','United Kingdom')
+    df['country'] = df['country'].str.replace('United Republic of Tanzania','Tanzania')
+    df['country'] = df['country'].str.replace('Syrian Arab Republic','Syria')
+    df['country'] = df['country'].str.replace("Democratic People's Republic of Korea",'South Korea')
+    
+    
     df = df.groupby(['country'], as_index=False).mean()
     df = df.dropna()
     
