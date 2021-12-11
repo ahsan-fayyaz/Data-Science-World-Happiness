@@ -70,7 +70,7 @@ After running `data_cleaning.py` for all the raw datasets, we combined `cleaned_
 
 What did you build? Why?
 
-Most of the datas we are dealing with in `full_dataset.csv` are continuous values. Therefore, regression analysis is the best fit to used to predict continous dependent varaible. To determine the regression model that fits our data the most, here is the list of all the different types of Machine Learning Regression models that we build:
+Most of the datas we are dealing with in `full_dataset.csv` are continuous values. Therefore, regression analysis is the best fit to use for predicting continuous dependent variables. To determine the regression model that fits our data the most, here is the list of all the different types of Machine Learning Regression models that we build:
 
 * Linear Regression
 * ElasticNet Regression
@@ -85,6 +85,32 @@ We will build each of these models to determine the best fitted model by checkin
 
 Evaluate your model. Do you feel confident about its performance?
 
+#### Linear Regression
+
+We found that `Linear Regression model` performed really well. That makes sense because linear regression is a long-established statistical procedure, the properties of linear-regression models are well understood and can be trained very quickly. With our hopes to increase our model's accuracy, we perfomed a k-fold (10 folds) `Cross Validation`. **Cross validation** here split the dataset into 10 folds/groups. This essentially took the first fold as a test set and fit the model on the remaining 9 folds. Then it predicted on the test set. This repeats for total 10 times. However, the score went down. So cross-validation did not help improve our model's accuracy at all.
+
+#### ElasticNet Regression
+
+ENet is an extension of linear regression that adds regularization penalties to the loss function during training. Elastic Net gives us two main benefits:
+
+* The order of importance of each variable
+* Given a criterion (AIC, BIC, cross-validation R2 ), it can be used to automatically chose the best model very quickly (only comparing p models, where p is the number of variables, as opposed to 2p models).
+
+Again our score for `ElasticNet Regression` was as good as Linear Regression Model.
+
+#### Ridge Regression
+
+Since we knew that Ridge Regression is a better predictor than least squares regression when the predictor variables are more than the observations. Ridge regression works with the advantage of not requiring unbiased estimators – rather, it adds bias to estimators to reduce the standard error. With Ridge regression our score dropped and we found it not be particulary useful for our data.
+
+#### Lasso Regression
+
+The goal of lasso regression is to obtain the subset of predictors that minimizes prediction error for a quantitative response variable. The lasso does this by imposing a constraint on the model parameters that causes regression coefficients for some variables to shrink toward zero. In our case, again it did not perform so well as `Linear Regressio`n and `ENet`.
+
+#### Bayesian Ridge Regression
+
+Bayesian regression allows a natural mechanism to survive insufficient data or poorly distributed data by formulating linear regression using probability distributors rather than point estimates. The output or response 'y' is assumed to drawn from a probability distribution rather than estimated as a single value. This model performed very well in our situation almost as good as Linear Regression and ENet
+
+
 ### Future Work
 
 Describe what work you would do in the future. This can include work to improve your model, building related models, and/or sourcing different datasets. Are there any other interesting questions you uncovered while you were working on your model?
@@ -93,6 +119,8 @@ Describe what work you would do in the future. This can include work to improve 
 
 **Questions to answer:**
   - The new COVID19 epidemic began in December 2019. Combining the data changes on 19, 20, and 21, check the impact of COVID19 epidemic on the country's happiness. 
+
+
 
 
 
