@@ -100,9 +100,9 @@ The goal of lasso regression is to obtain the subset of predictors that minimize
 
 #### Bayesian Ridge Regression
 
-Bayesian regression allows a natural mechanism to survive insufficient data or poorly distributed data by formulating linear regression using probability distributors rather than point estimates. The output or response 'y' is assumed to be drawn from a probability distribution rather than estimated as a single value. This model performed very well in our situation almost as good as Linear Regression and ENet.
+Bayesian regression allows a natural mechanism to survive insufficient data or poorly distributed data by formulating linear regression using probability distributors rather than point estimates. The output or response 'y' is assumed to be drawn from a probability distribution rather than estimated as a single value. This model performed very well in our situation, almost as good as Linear Regression and ENet.
 
-Since `Linear Regression` gave us the highest accuracy, let's compare the relationship of all the factors with happiness score.
+Since `Linear Regression` gave us the highest accuracy, let's compare the relationship of all the factors with the happiness score.
 
 #### GDP per capita vs Happiness Score
 
@@ -130,7 +130,7 @@ Since `Linear Regression` gave us the highest accuracy, let's compare the relati
 > A positive linear relationship is observed between World Happiness and medical doctor per 10,000 people. The slope tells us that for every one unit increase in medical doctor, there is an increase of 0.056 in the happiness score.
 
 
-Through all the figures above, we can see that all the factors have a strong positive linear relationship with the happiness score. This means they are all directly related to happiness. If one of those factor declines, happiness also go down. However, the one with the strongest relationship with happiness is `social support`. Because by definition, the larger the size of the correlation coefficient, the steeper the slope. It makes sense that we needd social support to be happy. The one with the weakest relationship with happiness is `clean water`.
+Through all the figures above, we can see that all the factors have a strong positive linear relationship with the happiness score. This means they are all directly related to happiness. If one of those factors declines, happiness also goes down. However, the one with the strongest relationship with happiness is `social support`. Because by definition, the larger the size of the correlation coefficient, the steeper the slope. It makes sense that we need social support to be happy. The one with the weakest relationship with happiness is `clean water`.
 
 
 ![heatmap](https://user-images.githubusercontent.com/54913677/145666441-2b1d2daa-d6c8-4316-adc5-8cb4461b308c.png)
@@ -139,5 +139,7 @@ Through all the figures above, we can see that all the factors have a strong pos
 
 ### Future Work
 
-During our data cleaning process, we grouped all data in the world happiness dataset by 'country' column by taking the mean values of each column for each individual country. Therefore, we do not have the data for each individual year in each country. The new COVID19 epidemic began in December 2019. There were a lot of countries with missing data for the years 2019 and on. For the future, if there are more data available, we want to do an individual analysis on COVID19 in correlation to the country's happiness. We want to determine the impact of COVID19 epidemic on the country's happiness. 
+During our data cleaning process, we grouped all data in the world happiness dataset by 'country' column by taking the mean values of each column for each individual country. Therefore, we do not have the data for each individual year in each country. The new COVID19 epidemic began in December 2019. There were a lot of countries with missing data for the years 2019 and on. For the future, if there is more data available, we want to do an individual analysis on COVID19 in correlation to the country's happiness. We want to determine the impact of COVID19 epidemic on the country's happiness. 
+
+
 
