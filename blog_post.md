@@ -20,8 +20,6 @@ In addition, we will add in new factors such as COVID cases, crude suicide rates
 
 ### Data
 
-Describe your data. Why did you choose it? What are its limitations?
-
 The world happiness dataset was provided by the [World Happiness Report (WHR)](https://worldhappiness.report/). The WHR is a publication of the Sustainable Development Solutions Network, powered by data from the Gallup World Poll and Lloyd’s Register Foundation. The world happiness dataset is acted as our main dataset that we will be comparing to with other factors in correlation to the happiness score. Furthermore, the datasets on COVID cases, crude suicide rates, drinking water services and medical doctors are collected from [Kaggle](https://www.kaggle.com/datasets) and the [World Health Organization (WHO)](https://covid19.who.int/info/). We chose these datasets because we strongly believe that these variables have some sort of correlation with the happiness score. Additionally, we believe that if we have the data of all the above factors we can determine the happiness score of that country without the need to survey individuals living in the country. 
 
 We have multiple datasets from different sources, which makes it harder for us to clean and combine these datasets together. Especially, dealing with the grouping of our main world happiness dataset was provided by the [World Happiness Report (WHR)](https://worldhappiness.report/). The world happiness dataset includes data from various different years with many missing datas. This leads to a lot of inconsistencies in the data, and even if we want, we cannot sort the data by each individual year.
@@ -66,8 +64,6 @@ After running `data_cleaning.py` for all the raw datasets, we combined `cleaned_
 
 ### Model
 
-What did you build? Why?
-
 Most of the datas we are dealing with in `full_dataset.csv` are continuous values. Therefore, regression analysis is the best fit to use for predicting continuous dependent variables. To determine the regression model that fits our data the most, here is the list of all the different types of Machine Learning Regression models that we build:
 
 * Linear Regression
@@ -79,11 +75,7 @@ Most of the datas we are dealing with in `full_dataset.csv` are continuous value
 We will build each of these models to determine the best fitted model by checking its score for accuracy.
 
 
-
-
 ### Evaluation
-
-Evaluate your model. Do you feel confident about its performance?
 
 #### Linear Regression
 
@@ -112,27 +104,27 @@ Bayesian regression allows a natural mechanism to survive insufficient data or p
 
 Since `Linear Regression` gave us the highest accuracy, let's compare the relationship of all the factors with happiness score.
 
-#### GDP per capita
+#### GDP per capita vs Happiness Score
 
 ![GDP_capita](https://user-images.githubusercontent.com/54913677/145665781-aa0d32a5-7ec2-4ace-9900-d7f332052a58.png)
 > A positive linear relationship is observed between World Happiness and GDP per capita. The slope tells us that for every one unit increase in GDP, there is an increase of 0.770 in the happiness score.
 
-#### Social Support
+#### Social Support vs Happiness Score
 
 ![social_support](https://user-images.githubusercontent.com/54913677/145665988-403de8cb-dc3d-43ee-a0bf-7712fd224b67.png)
 > A positive linear relationship is observed between World Happiness and social support. The slope tells us that for every one unit increase in social support, there is an increase of 7.309 in the happiness score.
 
-#### Life Expectancy
+#### Life Expectancy vs Happiness Score
 
 ![life_expectancy](https://user-images.githubusercontent.com/54913677/145665989-798cc833-6fb1-4aa7-9eef-911a1fc57d54.png)
 > A positive linear relationship is observed between World Happiness and life expectancy. The slope tells us that for every one unit increase in life expectancy, there is an increase of 0.119 in the happiness score.
 
-#### Clean Water
+#### Clean Water vs Happiness Score
 
 ![clean_water](https://user-images.githubusercontent.com/54913677/145665993-17eb1313-9cf7-4156-a7f4-d5715c192f2d.png)
 > A positive linear relationship is observed between World Happiness and clean water. The slope tells us that for every one unit increase in clean water, there is an increase of 0.034 in the happiness score.
 
-#### Doctor per 10,000 people
+#### Doctor per 10,000 people vs Happiness Score
 
 ![doc_per_10k](https://user-images.githubusercontent.com/54913677/145665995-e95c277e-63c6-4a92-80a5-d7076dec3757.png)
 > A positive linear relationship is observed between World Happiness and medical doctor per 10,000 people. The slope tells us that for every one unit increase in medical doctor, there is an increase of 0.056 in the happiness score.
@@ -147,9 +139,5 @@ Through all the figures above, we can see that all the factors have a strong pos
 
 ### Future Work
 
-Describe what work you would do in the future. This can include work to improve your model, building related models, and/or sourcing different datasets. Are there any other interesting questions you uncovered while you were working on your model?
-
-
-**Questions to answer:**
-  - The new COVID19 epidemic began in December 2019. Combining the data changes on 19, 20, and 21, check the impact of COVID19 epidemic on the country's happiness. 
+During our data cleaning process, we grouped all data in the world happiness dataset by 'country' column by taking the mean values of each column for each individual country. Therefore, we do not have the data for each individual year in each country. The new COVID19 epidemic began in December 2019. There were a lot of countries with missing data for the years 2019 and on. For the future, if there are more data available, we want to do an individual analysis on COVID19 in correlation to the country's happiness. We want to determine the impact of COVID19 epidemic on the country's happiness. 
 
