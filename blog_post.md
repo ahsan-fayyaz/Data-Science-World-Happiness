@@ -29,25 +29,29 @@ We have multiple datasets from different sources, which made it harder for us to
 Furthermore, the datasets on COVID cases, crude suicide rates, drinking water services and medical doctors are collected from [Kaggle](https://www.kaggle.com/datasets) and the [World Health Organization (WHO)](https://covid19.who.int/info/). We chose these datasets because we strongly believe that these variables have some sort of relationship with the happiness index. 
 
 #### Data Dictionary for `full_dataset.csv`:
-* Country: Name of the country or region the country belongs to, String;
-* happiness_score: Happiness Score in the scale of 0 - 10 for each country, float;
-* gdp_per_capita: GDP per capita of each country, float;
-* social_support: Social support of, float;
-* life_expectancy: Healthy life expectancy, float;
-* freedom:  Freedom to make choices in life, float;
-* corruption: Perception of corruption, float;
-* clean_water_per_100_people: Clear water per 100 people, float;
-* suicide_rate_per_100000_people: Suicide rate per 100,000 people, float;
-* doctors_per_10000_people: Doctors per 10,000 people, float;
+| Field Name | Description | Data Type | Example |
+| ---: | :--- | ---: | :--- |
+| country | Name of the country | String | Afghnistan |
+| happiness_score | Happiness score in the scale of 0 to 10 for each country | float | 3.594628175 |
+| gdp_per_capita | GDP per capita of each country | float | 7.650843461 |
+| social_support | Social support | float | 0.508245361 |
+| life_expectancy | Healthy life expectancy | float | 52.26666673 |
+| freedom | Freedom to make choices in life | float | 0.518011677 |
+| corruption | Perception of corruption | float | 0.070040733 |
+| clean_water_per_100_people | Clear water per 100 people | float | 37.755 |
+| suicide_rate_per_100000_people | Suicide rate per 100,000 people | float |4.3 |
+| doctors_per_10000_people: | Doctors per 10,000 people | float | 2.3225 |
 
 #### Data Dictionary for `cleaned_covid.csv`:
-* Country: Name of the country or region the country belongs to，String;
-* total_confirmed: The total number of COVID19 confirmed cases, integer;
-* total_deaths: The total number of COVID19 deaths reported, integer;
-* total_recovered: The total number of COVID19 recovered cases, integer;
-* deaths_per_100: The total number of COVID19 deaths per 100 person, float;
-* recovered_per_100: The total number of COVID19 recovered cases per 100 person, float;
-* region: Region of the country, String;
+| Field Name | Description | Data Type | Example |
+| ---: | :--- | ---: | :--- |
+| Country | Name of the country or region the country belongs to | String | Afghnistan |
+| total_confirmed | The total number of COVID19 confirmed cases | integer | 36362 |
+| total_deaths | The total number of COVID19 deaths reported | integer  | 1269 | 
+| total_recovered | The total number of COVID19 recovered cases | integer  | 25198 | 
+| deaths_per_100 | The total number of COVID19 deaths per 100 person | float | 3.5 | 
+| recovered_per_100 | The total number of COVID19 recovered cases per 100 person | float | 69.49 | 
+| region | Region of the country | String | Eastern Mediterranean | 
 
 
 ### Model
@@ -63,10 +67,9 @@ Evaluate your model. Do you feel confident about its performance?
 
 Describe what work you would do in the future. This can include work to improve your model, building related models, and/or sourcing different datasets. Are there any other interesting questions you uncovered while you were working on your model?
 
+
+
 **Questions to answer:**
   - The new COVID19 epidemic began in December 2019. Combining the data changes on 19, 20, and 21, check the impact of COVID19 epidemic on the country's happiness. 
-  - Correlation between each individual evaluation factors. (e.g. What are the factors effects the GDP per capita? )
-  - What is the difference between the happiest country in the world and the rest of the world?
-    - Which evaluation factor has the strongest correlations to the happiest country?
 
 
