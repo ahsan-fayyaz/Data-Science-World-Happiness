@@ -2,7 +2,11 @@
 
 ### MOTIVATION
 
-Happiness is an emotional state characterized by feelings of joy, satisfaction, contentment, and fulfillment. Majority refer their happiness to how they feel in the present moment, or a more general sense of how they feel about life overall. Happiness is a boardly defined term without a fixed answer and standard. But the World Happiness Report tell us that there are standards for happiness. 
+Happiness is an emotional state characterized by feelings of joy, satisfaction, contentment, and fulfillment. Majority refer their happiness to how they feel in the present moment, or a more general sense of how they feel about life overall. 
+
+![happiness](https://user-images.githubusercontent.com/54913677/145660104-53800121-c7de-4312-be05-0a3e310d96b8.png)
+
+Happiness is a boardly defined term without a fixed answer and standard. But the World Happiness Report tell us that there are standards for happiness. 
 
 The World Happiness Report is an international survey report published by the United Nations to measure the sustainable development of happiness. The report ranks 156 countries based on the data from Gallup World Poll survey and results of six major factors such as GDP per capita, family, life expectancy, freedom, generosity, and trust in government corruption. 
 
