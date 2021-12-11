@@ -1,7 +1,5 @@
 # World Happiness
 
-### MOTIVATION
-
 Happiness is an emotional state characterized by feelings of joy, satisfaction, contentment, and fulfillment. Majority refer to their happiness to how they feel in the present moment, or a more general sense of how they feel about life overall. 
 
 ![happiness](https://user-images.githubusercontent.com/54913677/145660104-53800121-c7de-4312-be05-0a3e310d96b8.png)
@@ -20,7 +18,7 @@ By analyzing the correlations between the six factors and happiness score. We wi
 In addition, we will add in new factors such as COVID cases, crude suicide rates, drinking water services and medical doctors as new comparison sets. 
 
 
-### DATA
+### Data
 
 Describe your data. Why did you choose it? What are its limitations?
 
@@ -81,34 +79,70 @@ Most of the datas we are dealing with in `full_dataset.csv` are continuous value
 We will build each of these models to determine the best fitted model by checking its score for accuracy.
 
 
+
+
 ### Evaluation
 
 Evaluate your model. Do you feel confident about its performance?
 
 #### Linear Regression
 
-We found that `Linear Regression model` performed really well. That makes sense because linear regression is a long-established statistical procedure, the properties of linear-regression models are well understood and can be trained very quickly. With our hopes to increase our model's accuracy, we perfomed a k-fold (10 folds) `Cross Validation`. **Cross validation** here split the dataset into 10 folds/groups. This essentially took the first fold as a test set and fit the model on the remaining 9 folds. Then it predicted on the test set. This repeats for total 10 times. However, the score went down. So cross-validation did not help improve our model's accuracy at all.
+We found that the `Linear Regression model` performed the best with the score of 86.1% accuracy. That makes sense because linear regression is a long-established statistical procedure, the properties of linear-regression models are well understood and can be trained very quickly. With our hopes to increase our model's accuracy, we performed a k-fold (10 folds) `Cross Validation`. **Cross validation** here split the dataset into 10 folds/groups. This essentially took the first fold as a test set and fit the model on the remaining 9 folds. Then it predicted on the test set. This repeats for a total of 10 times. However, the score went down. So cross-validation did not help improve our model's accuracy at all.
 
 #### ElasticNet Regression
 
 ENet is an extension of linear regression that adds regularization penalties to the loss function during training. Elastic Net gives us two main benefits:
 
 * The order of importance of each variable
-* Given a criterion (AIC, BIC, cross-validation R2 ), it can be used to automatically chose the best model very quickly (only comparing p models, where p is the number of variables, as opposed to 2p models).
+* Given a criterion (AIC, BIC, cross-validation R2 ), it can be used to automatically choose the best model very quickly (only comparing p models, where p is the number of variables, as opposed to 2p models).
 
-Again our score for `ElasticNet Regression` was as good as Linear Regression Model.
+Again, `ElasticNet Regression` performed as good as Linear Regression Model with 86.1% accuracy.
 
 #### Ridge Regression
 
-Since we knew that Ridge Regression is a better predictor than least squares regression when the predictor variables are more than the observations. Ridge regression works with the advantage of not requiring unbiased estimators – rather, it adds bias to estimators to reduce the standard error. With Ridge regression our score dropped and we found it not be particulary useful for our data.
+Since we knew that Ridge Regression is a better predictor than least squares regression when the predictor variables are more than the observations. Ridge regression works with the advantage of not requiring unbiased estimators – rather, it adds bias to estimators to reduce the standard error. With Ridge regression our score dropped to 65.9% and we found it not be particularly useful for our data.
 
 #### Lasso Regression
 
-The goal of lasso regression is to obtain the subset of predictors that minimizes prediction error for a quantitative response variable. The lasso does this by imposing a constraint on the model parameters that causes regression coefficients for some variables to shrink toward zero. In our case, again it did not perform so well as `Linear Regressio`n and `ENet`.
+The goal of lasso regression is to obtain the subset of predictors that minimizes prediction error for a quantitative response variable. The lasso does this by imposing a constraint on the model parameters that causes regression coefficients for some variables to shrink toward zero. Lasso regression model performed with the score of 61.9% accuracy. In our case, similar to ridge regression it did not perform so well as `Linear Regression` and `ENet`.
 
 #### Bayesian Ridge Regression
 
-Bayesian regression allows a natural mechanism to survive insufficient data or poorly distributed data by formulating linear regression using probability distributors rather than point estimates. The output or response 'y' is assumed to drawn from a probability distribution rather than estimated as a single value. This model performed very well in our situation almost as good as Linear Regression and ENet
+Bayesian regression allows a natural mechanism to survive insufficient data or poorly distributed data by formulating linear regression using probability distributors rather than point estimates. The output or response 'y' is assumed to be drawn from a probability distribution rather than estimated as a single value. This model performed very well in our situation almost as good as Linear Regression and ENet.
+
+Since `Linear Regression` gave us the highest accuracy, let's compare the relationship of all the factors with happiness score.
+
+#### GDP per capita
+
+![GDP_capita](https://user-images.githubusercontent.com/54913677/145665781-aa0d32a5-7ec2-4ace-9900-d7f332052a58.png)
+> A positive linear relationship is observed between World Happiness and GDP per capita. The slope tells us that for every one unit increase in GDP, there is an increase of 0.770 in the happiness score.
+
+#### Social Support
+
+![social_support](https://user-images.githubusercontent.com/54913677/145665988-403de8cb-dc3d-43ee-a0bf-7712fd224b67.png)
+> A positive linear relationship is observed between World Happiness and social support. The slope tells us that for every one unit increase in social support, there is an increase of 7.309 in the happiness score.
+
+#### Life Expectancy
+
+![life_expectancy](https://user-images.githubusercontent.com/54913677/145665989-798cc833-6fb1-4aa7-9eef-911a1fc57d54.png)
+> A positive linear relationship is observed between World Happiness and life expectancy. The slope tells us that for every one unit increase in life expectancy, there is an increase of 0.119 in the happiness score.
+
+#### Clean Water
+
+![clean_water](https://user-images.githubusercontent.com/54913677/145665993-17eb1313-9cf7-4156-a7f4-d5715c192f2d.png)
+> A positive linear relationship is observed between World Happiness and clean water. The slope tells us that for every one unit increase in clean water, there is an increase of 0.034 in the happiness score.
+
+#### Doctor per 10,000 people
+
+![doc_per_10k](https://user-images.githubusercontent.com/54913677/145665995-e95c277e-63c6-4a92-80a5-d7076dec3757.png)
+> A positive linear relationship is observed between World Happiness and medical doctor per 10,000 people. The slope tells us that for every one unit increase in medical doctor, there is an increase of 0.056 in the happiness score.
+
+
+Through all the figures above, we can see that all the factors have a strong positive linear relationship with the happiness score. This means they are all directly related to happiness. If one of those factor declines, happiness also go down. However, the one with the strongest relationship with happiness is `social support`. Because by definition, the larger the size of the correlation coefficient, the steeper the slope. It makes sense that we needd social support to be happy. The one with the weakest relationship with happiness is `clean water`.
+
+
+![heatmap](https://user-images.githubusercontent.com/54913677/145666441-2b1d2daa-d6c8-4316-adc5-8cb4461b308c.png)
+>The correlation map above visualizes the correlation values between happiness scores and various evaluation factors that contribute to happiness score. It demonstrates a direct positive correlation between the Happiness Score of a country and economy, family, and health/ life expectancy.
 
 
 ### Future Work
@@ -116,14 +150,6 @@ Bayesian regression allows a natural mechanism to survive insufficient data or p
 Describe what work you would do in the future. This can include work to improve your model, building related models, and/or sourcing different datasets. Are there any other interesting questions you uncovered while you were working on your model?
 
 
-
 **Questions to answer:**
   - The new COVID19 epidemic began in December 2019. Combining the data changes on 19, 20, and 21, check the impact of COVID19 epidemic on the country's happiness. 
-
-
-
-
-
-
-
 
