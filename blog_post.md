@@ -28,20 +28,17 @@ The world happiness dataset was provided by the [World Happiness Report (WHR)](h
 
 We have multiple datasets from different sources, which makes it harder for us to clean and combine these datasets together. Especially, dealing with the grouping of our main world happiness dataset was provided by the [World Happiness Report (WHR)](https://worldhappiness.report/). The world happiness dataset includes data from various different years with many missing datas. This leads to a lot of inconsistencies in the data, and even if we want, we cannot sort the data by each individual year.
 
-To clean the datasets, we will run [`data_cleaning.py`](data_cleaning.py) script in [`exploratory_data_analysis.ipynb`](exploratory_data_analysis.ipynb).
+To clean the datasets, we will run [data_cleaning.py](data_cleaning.py) script in [exploratory_data_analysis.ipynb](exploratory_data_analysis.ipynb).
 
 All the raw datasets from [/Datasets/Raw_Datasets](/Datasets/Raw_Datasets) will:
 
-* Drop all unneccessary columns and null values
+* Drop all unnecessary columns and null values
 * Rename columns
 * Group all data in the world happiness dataset by 'country' column by taking the mean values of each column for each individual country.
 
-After running [`data_cleaning.py`](data_cleaning.py) for all the raw datasets, we combined 
-* [`cleaned_drinking_water_services.csv`](/Datasets/Cleaned_Datasets/cleaned_drinking_water_services.csv), 
-* [`cleaned_crude_suicide_rates.csv`](/Datasets/Cleaned_Datasets/cleaned_crude_suicide_rates.csv), and 
-* [`cleaned_medical_doctors.csv`](/Datasets/Cleaned_Datasets/cleaned_medical_doctors.csv) 
+After running `data_cleaning.py` for all the raw datasets, we combined `cleaned_drinking_water_services.csv`, `cleaned_crude_suicide_rates.csv`, and `cleaned_medical_doctors.csv` as features into the `cleaned_world_happiness.csv` as new file called [`full_dataset.csv`](/Datasets/Cleaned_Datasets/full_dataset.csv).
 
-as features into the [`cleaned_world_happiness.csv`](/Datasets/Cleaned_Datasets/cleaned_world_happiness.csv) as new file called [`full_dataset.csv`](/Datasets/Cleaned_Datasets/full_dataset.csv).
+<sup>Note: all cleaned dataset can be found in [./Datasets/Cleaned_Datasets](/Datasets/Cleaned_Datasets)</sup>
 
 #### Data Dictionary for [`full_dataset.csv`](/Datasets/Cleaned_Datasets/full_dataset.csv):
 | Field Name | Description | Data Type | Example |
@@ -73,7 +70,15 @@ as features into the [`cleaned_world_happiness.csv`](/Datasets/Cleaned_Datasets/
 
 What did you build? Why?
 
-To determine the accuracy of our
+Most of the datas we are dealing with in `full_dataset.csv` are continuous values. Therefore, regression analysis is the best fit to used to predict continous dependent varaible. To determine the regression model that fits our data the most, here is the list of all the different types of Machine Learning Regression models that we build:
+
+* Linear Regression
+* ElasticNet Regression
+* Ridge Regression
+* Lasso Regression
+* Bayesian Ridge Regression
+
+We will build each of these models to determine the best fitted model by checking its score for accuracy.
 
 
 ### Evaluation
@@ -88,6 +93,8 @@ Describe what work you would do in the future. This can include work to improve 
 
 **Questions to answer:**
   - The new COVID19 epidemic began in December 2019. Combining the data changes on 19, 20, and 21, check the impact of COVID19 epidemic on the country's happiness. 
+
+
 
 
 
