@@ -1,4 +1,4 @@
-# Project Title
+# Exploratory Data Analysis on World Happiness
 
 ### Group Members
 - Ahsan Fayyaz 
